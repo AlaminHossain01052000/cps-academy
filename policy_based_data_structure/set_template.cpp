@@ -11,7 +11,7 @@ typedef tree< long long int, null_type, less_equal<long long int>, rb_tree_tag, 
 /// greater_equal for multiset decreasing order
 /// greater for set decreasing order
 
-/// cout<<*X.find_by_order(1)<<endl; // iterator to the k-th largest element
+/// cout<<*X.find_by_order(1)<<endl; // iterator to the k-th largest element // return the index of the 1 in the set
 /// cout<<X.order_of_key(-5)<<endl;  // number of items in a set that are strictly smaller than our item
 
 int main(){
