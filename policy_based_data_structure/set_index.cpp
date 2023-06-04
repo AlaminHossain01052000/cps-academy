@@ -23,7 +23,9 @@ int main(){
     ps.insert(4);
     ps.insert(5);
     
-    ps.erase(4); //It will only work in set
+    ps.erase(4); //It will only work in set. For delete an element in multiset you have to find the iterator of that element . Example :
+    // auto it=ps.upper_bound(4);// Here I am using upper bound and pbds is mental in the case of multiset and it return lower bound if I find upper bound and upper bound if i find lower bound
+    // ps.erase(it);
    
     for(auto ele:ps)cout<<ele<<" ";cout<<endl;
     cout<<"Value at index 2 is : "<<*ps.find_by_order(2)<<endl;//Works in both set and multiset
