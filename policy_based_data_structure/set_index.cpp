@@ -26,10 +26,11 @@ int main(){
     ps.erase(4); //It will only work in set
    
     for(auto ele:ps)cout<<ele<<" ";cout<<endl;
-    cout<<"Value at index 2 is : "<<*ps.find_by_order(2)<<endl;
+    cout<<"Value at index 2 is : "<<*ps.find_by_order(2)<<endl;//Works in both set and multiset
     cout<<"Value at index 3 is : "<<*ps.find_by_order(3)<<endl;
-    cout<<"Lower bound of 2 is : "<<*ps.lower_bound(2)<<endl;
-    cout<<"Lower bound of 2 is : "<<*ps.lower_bound(4)<<endl;
+    cout<<"Lower bound of 2 is : "<<*ps.lower_bound(2)<<endl;//work in set only
+    cout<<"Lower bound of 4 is : "<<*ps.lower_bound(4)<<endl;
+    cout<<"Upper bound of 5 is : "<<*ps.upper_bound(5)<<endl;
     // set<int> s;
     // s.insert(2);
     // s.insert(3);
