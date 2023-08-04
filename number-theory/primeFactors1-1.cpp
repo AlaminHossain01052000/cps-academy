@@ -29,8 +29,9 @@ vector<int> primeFactorization(int n){
     for(auto primeNumber:primes){
         if(primeNumber*primeNumber>n)break;
         if(n%primeNumber==0){
+            //primeFactors.push_back(primeNumber); //for distinct prime factors
             while(n%primeNumber==0){
-                primeFactors.push_back(primeNumber);
+                primeFactors.push_back(primeNumber);//for non-distict prime factors
                 n/=primeNumber;
             }
         }

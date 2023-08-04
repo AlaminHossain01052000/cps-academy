@@ -22,8 +22,6 @@ void seive(int n){
         if(isPrime[i])primes.push_back(i);
     }
 }
-//theory : sod(12)=(2^0+2^1+2^2)*(3^0+3^1);
-// primeFactorization(12)=(2^2)*(3^1)=(4*3)
 int sod(int n){
     int sumOfDivisors=1;
 
@@ -32,6 +30,7 @@ int sod(int n){
         if(n%primeNumber==0){
             int currentSum=1; //primeNumber^0
             int powerOfP=1; //primeNumber^0
+            //primeFactors.push_back(primeNumber); //for distinct prime factors
             while(n%primeNumber==0){
                powerOfP*=primeNumber;//2=(2*2)
                currentSum+=powerOfP;//currentSum=(1+2^1+2^2+....) where 1=2^0
@@ -44,60 +43,14 @@ int sod(int n){
 
     return sumOfDivisors;
 }
-//using formula of a linear sequnece p^0+p^1+p^2+...p^n
-//theory : primeFactorization(n)=(p^x)*(q^y)
-// sod(n)=(p^0+p^1+...p^x)(q^0+q^1+.....q^y)=((p^(x+1))-1)/p-1)*((q^(y+1))-1)/q-1)
-int sod2(int n){
-    int sumOfDivisors=1;
-
-    for(auto primeNumber:primes){
-        if(primeNumber*primeNumber>n)break;
-        if(n%primeNumber==0){
-            int powerOfP=primeNumber; //primeNumber
-            while(n%primeNumber==0){
-               powerOfP*=primeNumber;//2=(2*2)
-               n/=primeNumber;
-            }
-            sumOfDivisors*=((powerOfP-1)/(primeNumber-1));
-        }
-    }
-    if(n>1)sumOfDivisors*=(1+n);//if n=5 then 5^0+5^1, assume n was 20 at first
-
-    return sumOfDivisors;
-}
-
 signed main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    seive(1e6);
+    seive(1e8);
     int t;
     cin>>t;
     while(t--){
         int n;
         cin>>n;
-        cout<<sod2(n)<<endl;
+        cout<<sod(n)-n<<endl;
+       
     }
-    
 }
-// 10
-// 1
-// =>1
-// 2
-// =>3
-// 5
-// =>6
-// 10
-// =>18
-// 15
-// =>24
-// 20
-// =>42
-// 30
-// =>72
-// 60
-// =>168
-// 100
-// =>217
-// 1010
-// =>1836
