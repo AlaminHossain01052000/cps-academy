@@ -21,11 +21,9 @@ signed main(){
     ll t;
     cin>>t;
     vector<ll>fact(1e6+1);
-    vector<ll>invrs(1e6+1);
     fact[0]=1;
     for(ll i=1;i<=1e6;++i){
         fact[i]=modMul(fact[i-1],i);
-        invrs[i]=modInverse(i);
     }
     ll tc=1;
     while(tc<=t){
