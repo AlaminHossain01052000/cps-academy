@@ -8,7 +8,7 @@ void seive(int n){
     n+=100;
     isPrime[1]=false;
     isPrime[0]=false;
-    
+    isPrime[2]=1;
     for(int i=3;i<n;i+=2)isPrime[i]=1;//all evens are 0
     for(int i=3;i*i<n;i+=2){
         
